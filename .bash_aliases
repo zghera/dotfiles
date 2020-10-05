@@ -12,3 +12,4 @@ alias log="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d
 # ROS
 alias catmake_amp="pushd ~/Documents/AMP-19-20/; catkin_make; source devel/setup.bash; popd"
 alias catmake_tut="pushd ~/Documents/catkin_ws/; catkin_make; source devel/setup.bash; popd"
+alias rosdep_all="rosdep install --from-paths src --ignore-src -r -y"
