@@ -1,7 +1,6 @@
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 "
-" .vimrc file of Alex Quinn
-" License: public domain (use as you please, no credit needed)
+" Derived from Alex Quinn's ECE 264 .vimrc file
 "
 " vim: set tabstop=2 shiftwidth=2 fileencoding=utf8 expandtab:
 
@@ -78,6 +77,9 @@ map <F9> :set
 
 " Shift-F9 - change a setting, only in current tab/buffer
 map <S-F9> :setlocal 
+
+" F10 - source .vimrc
+map <F10> :so ~/.vimrc
 
 " F12 - toggle display of whitespace
 nmap <F12> :set invlist<CR>
