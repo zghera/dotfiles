@@ -139,6 +139,17 @@ map! <F12> <><LEFT>
 
 
 "_________________________________________________________________________
+" MAPPINGS for visual mode
+"
+
+" Ctrl+c - yank visually selected text to system clipboard
+vnoremap <C-c> "*y
+
+" Ctrl+v - paste from sustem clipboard
+map <C-v> "*p
+
+
+"_________________________________________________________________________
 " PLUGINS
 "
 " We are making some plugins and color schemes available to all students.
