@@ -123,3 +123,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Add file explorer env variable
+export BROWSER="explorer.exe"
+
+# Config bash to use local X server
+export DISPLAY=localhost:0.0
