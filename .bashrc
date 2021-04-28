@@ -123,8 +123,33 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# set DISPLAY to use X terminal in WSL
+# in WSL2 the localhost and network interfaces are not the same than windows
+if wsl.exe -l --verbose | grep -q 2; then
+    # execute route.exe in the windows to determine its IP address
+    # DISPLAY=$(route.exe print | grep 0.0.0.0 | head -1 | awk '{print $4}'):0.0
+    export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
+else
+    # In WSL1 the DISPLAY can be the localhost address
+    export DISPLAY=localhost:0.0
+fi
+
 # Add file explorer env variable
 export BROWSER="explorer.exe"
 
-# Config bash to use local X server
-export DISPLAY=localhost:0.0
+# added by Anaconda3 5.3.1 installer
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/zghera/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    \eval "$__conda_setup"
+else
+    if [ -f "/home/zghera/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/zghera/anaconda3/etc/profile.d/conda.sh"
+        CONDA_CHANGEPS1=false conda activate base
+    else
+        \export PATH="/home/zghera/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda init <<<
